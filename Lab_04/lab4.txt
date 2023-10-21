@@ -1,0 +1,106 @@
+1. I read the document.
+2. I read the documents
+3. Set equal
+4. It takes two numbers (10,2) and adds them together to get 12.
+5. The resulting value is being placed in register R1.
+6. Yes, the number will fit in one register.
+
+7. Assembly Language:
+
+FIM P0, $A2
+LD R0
+ADD R1
+XCH R5
+FIM P0, $00
+DONE
+JUN DONE
+
+8. Assembly Language:
+
+FIM P0, 03    ;Decimal of first number
+FIM P1, 04    ;Decimal of second number
+LDM $0
+SUB R3
+CLC
+XCH R3
+LOOP1
+LD R1
+ADD R5
+XCH R5
+ISZ R3, LOOP1
+FIM P0, $00
+DONE
+JUN DONE
+   
+9. Assembly Language:
+
+FIM P0, 13    ;Decimal of first number
+FIM P1, 13    ;Decimal of second number
+LDM $0
+SUB R3
+CLC
+XCH R3
+LDM $F
+SUB R2
+CLC
+XCH R2
+
+LOOP1
+LD R1
+ADD R5
+XCH R5
+
+LD R0
+ADD R4
+XCH R4
+
+ISZ R3, LOOP1
+ISZ R2, LOOP1
+FIM P0, $00
+
+DONE
+JUN DONE
+   
+
+10.
+
+FIM P0, $03   ;Hex of the positive number
+FIM P1, $FE   ;Hex of the negative number
+
+LOOP1
+LD R1
+ADD R5
+XCH R5
+
+LD R0
+ADD R4
+XCH R4
+ISZ R3, LOOP1
+ISZ R2, LOOP1
+
+LDM $F
+SUB R5
+CLC
+XCH R5
+LDM $1
+ADD R5
+XCH R5
+TCC
+XCH R6
+LDM $F
+SUB R4
+XCH R4
+CLC
+
+
+XCH R6
+ADD R4
+XCH R4
+
+FIM P0, $00
+FIM P3, $00
+
+DONE
+JUN DONE
+   
+ 
