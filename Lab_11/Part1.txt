@@ -1,1 +1,9 @@
+(1) 1011.01
+(2) 101101
+(6) 110.1
+(7) 1101
+(13) 3 
+(15) 73.125
 
+Code:
+{"code":"ADDI X3, XZR, #1000\nLSL X3, X3, #2\n\nLDUR X0, [X3, #0]\nLDUR X1, [X3, #24]\nADD X2, XZR, XZR\n\nLoop1:\nANDI X4, X1, #1\nSUBIS XZR, X4, #1\n\nB.NE SkipAdd\nADD X2, X0, X2\nSkipAdd:\n\nLSL X0, X0, #1\nLSR X1, X1, #1\nCBNZ X1, Loop1\n\nSTUR X2, [X3, #48]\n\nLDUR X0, [X3, #8]\nLDUR X1, [X3, #32]\nADD X2, X0, X1\nSTUR X2, [X3, #56]\n\nLDUR X0, [X3, #16]\nLDUR X1, [X3, #40]\nEOR X2, X0, X1\nSTUR X2, [X3, #64]\n","registers":"X0 0, X1 0, XZR 0","memory":"4000 45, 4008 2, 4016 0, 4024 13, 4032 1, 4040 1"}
